@@ -1,0 +1,12 @@
+<div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email </label>
+    <input class="form-control m-2" type="email" [(ngModel)]="usuario.email">
+
+</div>
+<div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+    <input class="form-control m-2" type="password" [(ngModel)]="usuario.password">
+</div>
+
+<button class="btn btn-primary btn-block m-2" (click)="Ingresar()">Ingresar</button>
+<label class="mt-1">¿Aun no tines cuenta?   <a [routerLink]="['/SignIn']">Registrate</a></label>

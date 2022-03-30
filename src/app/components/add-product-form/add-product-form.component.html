@@ -1,0 +1,107 @@
+<style>
+    .span-info-visible {
+        visibility: visible;
+    }
+    
+    .span-info-invisible {
+        visibility: hidden;
+    }
+</style>
+<div *ngIf="loading" class="spinner-border text-info " style="position: absolute;margin-left: 39rem;margin-top: 67px;" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Añade tu producto</h3>
+                    <p>Rellena los campos de abajo</p>
+                    <form [formGroup]="form" (ngSubmit)="subirproducto(form.value)">
+
+                        <div class="input-group input-group-lg mb-3">
+
+                            <input type="text" formControlName="name" class="form-control" minlength="3" maxlength="6" placeholder="Name">
+                            <span class="text-danger" [class.span-info-visible]="this.form.get('name')?.invalid && this.form.get('name')?.touched" [class.span-info-invisible]="this.form.get('name')?.valid">*Campo incorrecto o sin completar</span>
+
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+
+                            <input type="text" formControlName="shortdescription" class="form-control" placeholder="Short Description">
+                            <span class="text-danger" [class.span-info-visible]="  this.form.get('shortdescription')?.invalid && this.form.get('shortdescription')?.touched" [class.span-info-invisible]=" this.form.get('shortdescription')?.valid ">*Campo incorrecto o sin completar</span>
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+
+                            <input type="text" formControlName="longdescription" class="form-control" placeholder="Long description">
+                            <span class="text-danger" [class.span-info-visible]="  this.form.get('longdescription')?.invalid && this.form.get('longdescription')?.touched" [class.span-info-invisible]=" this.form.get('longdescription')?.valid ">*Campo incorrecto o sin completar</span>
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+
+                            <input type="text" formControlName="price" class="form-control" placeholder="Prize(€)">
+                            <span class="text-danger" [class.span-info-visible]="  this.form.get('price')?.invalid && this.form.get('price')?.touched" [class.span-info-invisible]=" this.form.get('price')?.valid ">*Campo incorrecto o sin completar</span>
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+
+                            <input type="text" formControlName="iva" class="form-control" placeholder="IVA(%)">
+                            <span class="text-danger" [class.span-info-visible]="  this.form.get('iva')?.invalid && this.form.get('iva')?.touched" [class.span-info-invisible]=" this.form.get('iva')?.valid ">*Campo incorrecto o sin completar</span>
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+
+                            <input type="text" formControlName="sku" class="form-control" placeholder="SKU">
+                            <span class="text-danger" [class.span-info-visible]="  this.form.get('sku')?.invalid && this.form.get('sku')?.touched" [class.span-info-invisible]=" this.form.get('sku')?.valid ">*Campo incorrecto o sin completar</span>
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+
+                            <input type="text" formControlName="stock" class="form-control" placeholder="Stock">
+                            <span class="text-danger" [class.span-info-visible]="  this.form.get('stock')?.invalid && this.form.get('stock')?.touched" [class.span-info-invisible]=" this.form.get('stock')?.valid ">*Campo incorrecto o sin completar</span>
+                        </div>
+                        <div class="input-group input-group-lg mb-3">
+
+                            <select formControlName="category" class="form-select" aria-label="Default select example">
+                                <option selected>Selecciona una categoria</option>
+                                <option value="Tecnologia">Tecnologia</option>
+                                <option value="Ocio">Ocio</option>
+                                <option value="Otros">Otros</option>
+                              </select>
+                            <span class="text-danger" [class.span-info-visible]="  this.form.get('category')?.invalid && this.form.get('category')?.touched" [class.span-info-invisible]=" this.form.get('category')?.valid ">*Campo incorrecto o sin completar</span>
+
+                        </div>
+
+                        <div class="input-group input-group-lg mb-3">
+
+                            <input type="file" accept="image/*" formControlName="image" class="form-control" #fileUploader (change)="showPreview($event)">
+                            <span class="text-danger" [class.span-info-visible]="  this.form.get('image')?.invalid && this.form.get('image')?.touched" [class.span-info-invisible]=" this.form.get('image')?.valid ">*Campo incorrecto o sin completar</span>
+
+                        </div>
+
+
+
+                        <div class="input-group input-group-lg mb-3">
+                            <div *ngIf="imgdefault">
+                                <img [src]="imgSrc" width="350px" height="250px" alt="Click para cambiar de imagen" (click)="fileUploader.click()">
+                            </div>
+
+
+
+                        </div>
+
+                        <!--
+                        <div class="input-group input-group-lg mb-3">
+
+                        <input type="text" formControlName="image" class="form-control" placeholder="Copie aqui la direccion de la imagen">
+
+                        </div>
+                    -->
+
+                        <div class="form-button mt-3">
+                            <button class="btn btn-success btn-lg" [disabled]="form.invalid" type="submit">
+                                <i class="bi bi-check"></i> Enviar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

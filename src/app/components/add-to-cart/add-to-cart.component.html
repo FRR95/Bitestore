@@ -1,0 +1,49 @@
+<div class="container ml-1 mt-4">
+    <div class="row">
+        <div class="col-3" *ngFor="let products of product,index as i">
+
+
+            <div class="ibox">
+                <div class="ibox-content product-box">
+                    <div class="product-imitation">
+                        <img src="{{products.picture}}" alt="Image" height="150" width="150">
+                    </div>
+                    <div class="product-desc">
+                        <span class="product-price">
+                            {{ products.price}}€
+                    </span>
+                        <small class="text-muted">{{ products.category.name }}</small>
+                        <p class="product-name">{{ products.name }}</p>
+
+                        <div class="small m-t-xs">
+                            {{ products.description.short }}
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<button [routerLink]="['/Store']" class="btn btn-outline-primary"><i class="bi bi-arrow-counterclockwise"></i>Volver a la tienda</button>
+<button (click)="clearCart()" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-bag-x-fill"></i> Borrar cesta</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Éxito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5>Cesta borrada con éxito,volviendo a la tienda</h5>
+            </div>
+            <div class="modal-footer">
+                <button (click)="ReloadPage()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
