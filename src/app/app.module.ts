@@ -46,6 +46,7 @@ import { NavmenusideComponent } from './components/navmenuside/navmenuside.compo
 
 //Services
 import { ConexionService } from 'src/app/services/conexion.service';
+import { LoadingpageComponent } from './components/loadingpage/loadingpage.component';
 
 //
 
@@ -81,6 +82,7 @@ const rutas: Routes = [
     AddToCartComponent,
     AddProductFormComponent,
     NavmenusideComponent,
+    LoadingpageComponent,
   
   ],
   imports: [
@@ -89,7 +91,6 @@ const rutas: Routes = [
     ToastrModule.forRoot(),
     RouterModule.forRoot(rutas),
     AngularFireStorageModule,
-    
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ProductHTTP } from 'src/app/Models/ProductsFilter';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { BehaviorSubject,Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+
 
 
 
@@ -20,9 +21,11 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/datab
 export class ConexionService {
   products: ProductHTTP[] = [];
  
-  filteredProducts: any;
+  filteredProducts!: any[];
+  productsfilter!: any;
 
-
+  private count = 0;
+  private spinner$ = new BehaviorSubject<string>('');
 
 
   constructor(private firestore:AngularFirestore,private afauth: AngularFireAuth,private http:HttpClient,private firedata:AngularFireDatabase) {
@@ -113,6 +116,34 @@ getproducts(){
 return this.http.get<any>('https://api.biteindustry.es/products',{headers:{Authorization:'*CdY2)x4|]<uv9V)-{^W6[j#c'}})
 }
 
+
+
+
+  //
+
+  //LOADING PAGE
+  
+  getSpinnerObserver(): Observable<string> {
+    return this.spinner$.asObservable();
+  }
+
+  requestStarted() {
+    if (++this.count === 1) {
+      this.spinner$.next('start');
+    }
+  }
+
+  requestEnded() {
+    if (this.count === 0 || --this.count === 0) {
+      this.spinner$.next('stop');
+    }
+  }
+
+  resetSpinner() {
+    this.count = 0;
+    this.spinner$.next('stop');
+  }
+  
   //
 
 

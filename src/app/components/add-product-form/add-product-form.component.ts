@@ -7,6 +7,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from "rxjs/operators";
 import { Observable } from 'rxjs'
 import { ProductHTTP } from 'src/app/Models/ProductsFilter';
+import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-product-form',
@@ -22,19 +23,22 @@ export class AddProductFormComponent implements OnInit {
   loading = false;
   imgdefault = false;
   products: Product[] = [];
+  products1: ProductHTTP[] = [];
   formValue:any;
   images!: Observable<any[]>;
   url !: Observable<any[]>;
+  productsfilter!: any;
+  filteredProducts!: any[];
   
   constructor(private fb: FormBuilder,private conexion:ConexionService,private toastr:ToastrService,private storage:AngularFireStorage) { 
     this.form = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(16)]],
     shortdescription: ['', [Validators.required, Validators.minLength(16)]],
     longdescription: ['', [Validators.required, Validators.minLength(16)]],
-    price: ['', [Validators.required, Validators.minLength(16)]],
-    iva: ['', [Validators.required, Validators.minLength(16)]],
+    price: ['', [Validators.required, Validators.minLength(3)]],
+    iva: ['', [Validators.required, Validators.minLength(2)]],
     sku: ['', [Validators.required, Validators.minLength(16)]],
-    stock: ['', [Validators.required, Validators.minLength(16)]],
+    stock: ['', [Validators.required, Validators.minLength(4)]],
     category: ['', [Validators.required, Validators.minLength(1)]],
     image:['', [Validators.required, Validators.minLength(16)]],
     })

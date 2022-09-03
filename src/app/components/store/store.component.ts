@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConexionService } from 'src/app/services/conexion.service';
+
 import { FilteringService } from 'src/app/services/filtering.service';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
@@ -39,7 +40,7 @@ export class StoreComponent implements OnInit {
   this.obtenerproductoshttp();
 
   this.obtenerproductosCUSTOM();
-  this.obtenerproductoshttpfiltered();
+  this.obtenerproductoshttpfiltered1();
 
 
   
@@ -72,7 +73,7 @@ export class StoreComponent implements OnInit {
    
   }
 
-  obtenerproductoshttpfiltered() {
+  obtenerproductoshttpfiltered1() {
     this.conexion.getproducts().subscribe(products => {
       this.productsfilter = products;
        this.filteredProducts =[...this.productsfilter.filter((user: { category:{name: string | any[];} }) => user.category.name.includes('Portátiles'))];
