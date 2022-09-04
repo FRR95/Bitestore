@@ -1,12 +1,14 @@
 <ul class="nav justify-content-center sticky-top bg-white">
     <li class="nav-item">
-        <button type="button" class="btn btn-warning " data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
-            <i class="bi bi-arrow-right-circle"></i> Tienda
+        <button type="button" class="btn btn-warning" (click)="toggleMenu()">
+            <i class="bi bi-arrow-left-circle"></i> Tienda
           </button>
+
     </li>
     <li class="nav-item">
         <a class="nav-link" [routerLink]="['/']">Inicio</a>
     </li>
+    <app-sidebar [@slideInOut]="menuState"></app-sidebar>
 
 
     <ng-template #notregistered>
@@ -46,33 +48,3 @@
 
 
 </ul>
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Tienda</h5>
-        <button type="button" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-arrow-left-circle"></i></button>
-    </div>
-    <div class="offcanvas-body">
-        <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a [routerLink]="['Store']" class="nav-link " aria-current="page">
-            Productos
-          </a>
-            </li>
-            <div *ngIf="userLogged|async as user">
-                <li class="nav-item">
-                    <a [routerLink]="['Cart']" class="nav-link " aria-current="page">
-            Mi carrito
-          </a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a [routerLink]="['AddProduct']" class="nav-link " aria-current="page">
-                        Añadir un producto
-          </a>
-                </li>
-
-            </div>
-        </ul>
-    </div>
-</div>

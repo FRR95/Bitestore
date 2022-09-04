@@ -47,11 +47,12 @@ import { NavmenusideComponent } from './components/navmenuside/navmenuside.compo
 //Services
 import { ConexionService } from 'src/app/services/conexion.service';
 import { LoadingpageComponent } from './components/loadingpage/loadingpage.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 //
 
 const rutas: Routes = [
-  { path: '', component:MainMenuComponent },
+  { path: '', component:StoreComponent },
   { path: 'SignIn', component:SignInUserComponent },
   { path: 'logIn', component:LogInUserComponent },
   { path: 'Store', component:StoreComponent},
@@ -83,6 +84,7 @@ const rutas: Routes = [
     AddProductFormComponent,
     NavmenusideComponent,
     LoadingpageComponent,
+    SidebarComponent,
   
   ],
   imports: [
