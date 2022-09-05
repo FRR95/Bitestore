@@ -11,10 +11,11 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   animations: [
     trigger('slideInOut', [
       state('in', style({
-        transform: 'translate3d(0,0,0)'
+        transform: 'translate3d(100%,0,0)'
       })),
       state('out', style({
-        transform: 'translate3d(100%,0,0)'
+      
+      transform: 'translate3d(0,0,0)'
       })),
       transition('in => out', animate('300ms ease-in-out')),
       transition('out => in', animate('300ms ease-in-out'))
@@ -24,8 +25,14 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class NavbarComponent implements OnInit {
   userLogged = this.conexion.getUserLogged();
   menuState:string = 'out';
+  class:any;
+  class1:any;
 
-  constructor(private conexion: ConexionService, private router: Router) { }
+  constructor(private conexion: ConexionService, private router: Router) {
+    this.class='d-none';
+    this.class1='d-block';
+
+   }
 
   ngOnInit(): void {
   }
@@ -36,5 +43,8 @@ export class NavbarComponent implements OnInit {
 
     toggleMenu(){
       this.menuState = this.menuState === 'out' ? 'in' : 'out';
+      this.class = this.class === 'd-block' ? 'd-none' : 'd-block';
+      this.class1 = this.class1 === 'd-none' ? 'd-block' : 'd-none';
+      
     }
 }

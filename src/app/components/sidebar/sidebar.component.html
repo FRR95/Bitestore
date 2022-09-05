@@ -1,7 +1,14 @@
 <ul>
+    <li>
+        <button type="button" class="btn btn-danger" (click)="closeMenu()">
+            X
+          </button>
+
+    </li>
     <li> <a [routerLink]="['Store']" class="nav-link " aria-current="page">
         Productos
-      </a></li>
+      </a>
+    </li>
     <div *ngIf="userLogged|async as user">
         <li class="nav-item">
             <a [routerLink]="['Cart']" class="nav-link " aria-current="page">
