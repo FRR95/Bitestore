@@ -1,10 +1,12 @@
 import { Component, OnInit , ChangeDetectorRef} from '@angular/core';
 import { ConexionService } from 'src/app/services/conexion.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-loadingpage',
   templateUrl: './loadingpage.component.html',
-  styleUrls: ['./loadingpage.component.css']
+  styleUrls: ['./loadingpage.component.css'],
+
 })
 export class LoadingpageComponent implements OnInit {
   
@@ -21,7 +23,8 @@ export class LoadingpageComponent implements OnInit {
      //Loader variable set false after page load
     setTimeout(()=>{                           
       this.loader = false;
-  }, 1000);
+      
+  },2000 );
   }
 
 }

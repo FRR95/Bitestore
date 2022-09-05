@@ -1,26 +1,48 @@
 <html>
-<div class="container my-5">
-    <div class="card text-center">
-        <div class="card-header">
-            <b> REGISTRO</b>
+<div class="container h-100 ">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card bg-warning">
+            <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/37/37502.png" class="brand_logo" alt="Logo">
+                </div>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+                <form>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                        </div>
+                        <input type="name" [(ngModel)]="usuario.name" class="form-control input_user" placeholder="Nombre">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                        </div>
+                        <input type="email" [(ngModel)]="usuario.email" class="form-control input_user" placeholder="Email">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="bi bi-key"></i></span>
+                        </div>
+                        <input type="password" name="" class="form-control input_pass" [(ngModel)]="usuario.password" placeholder="Contraseña">
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button type="button" name="button" class="btn login_btn" (click)="registrarse()">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    ¿Ya tienes cuenta? <a [routerLink]="['logIn']" class="ml-2">Inicia sesión</a>
+                </div>
+
+            </div>
         </div>
-        <div class="card-body p-4">
-            <label style="float: left;">Nombre</label>
-            <input class="form-control m-2" type="name" placeholder="ingrese su nombre" [(ngModel)]="usuario.name">
-
-            <label style="float: left;">Email</label>
-            <input class="form-control m-2" type="email" placeholder="ingrese su email" [(ngModel)]="usuario.email">
-
-            <label style="float: left;">Password</label>
-            <input class="form-control m-2" type="password" placeholder="ingrese su password" [(ngModel)]="usuario.password">
-
-            <button class="btn btn-primary btn-block m-2" (click)="registrarse()">Registrar</button>
-            <a [routerLink]="['/']">Volver</a>
-            <!-- <button class="btn btn-info btn-block m-2" (click)="IngresarConGoogle()">Ingresar con google</button> -->
-
-        </div>
-
-
     </div>
 </div>
 

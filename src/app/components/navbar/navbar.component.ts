@@ -29,8 +29,8 @@ export class NavbarComponent implements OnInit {
   class1:any;
 
   constructor(private conexion: ConexionService, private router: Router) {
-    this.class='d-none';
-    this.class1='d-block';
+   this.class='invisible';
+   this.class1='visible';
 
    }
 
@@ -43,8 +43,8 @@ export class NavbarComponent implements OnInit {
 
     toggleMenu(){
       this.menuState = this.menuState === 'out' ? 'in' : 'out';
-      this.class = this.class === 'd-block' ? 'd-none' : 'd-block';
-      this.class1 = this.class1 === 'd-none' ? 'd-block' : 'd-none';
+      this.class = this.class === 'visible' ? 'invisible' : 'visible';
+      this.class1 = this.class1 === 'invisible' ? 'visible' : 'invisible';
       
     }
 }

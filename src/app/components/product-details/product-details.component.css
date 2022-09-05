@@ -1,10 +1,7 @@
-body {
-    background-color: #edf1f5;
-    margin-top: 20px;
-}
-
 .card {
     margin-bottom: 30px;
+    margin-top: 30px;
+    background-color: #728299;
 }
 
 .card {
@@ -13,7 +10,6 @@ body {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
     background-clip: border-box;
     border: 0 solid transparent;
     border-radius: 0;
@@ -22,14 +18,10 @@ body {
 .card .card-subtitle {
     font-weight: 300;
     margin-bottom: 10px;
-    color: #8898aa;
-}
-
-.table-product.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f3f8fa!important
+    color: #000000;
 }
 
 .table-product td {
     border-top: 0px solid #dee2e6 !important;
-    color: #728299!important;
+    color: #000000!important;
 }
