@@ -1,14 +1,14 @@
+<html>
 <ul class="nav justify-content-center sticky-top bg-white">
     <li class="nav-item">
-        <button type="button" class="btn btn-warning" (click)="toggleMenu()">
-            <i class="bi bi-x-circle pe-2"  [ngClass]="class"></i> Tienda <i class="bi bi-arrow-right-circle ps-2"  [ngClass]="class1"></i>
-          </button>
+
+        <button (click)="openNav()" class="btn btn-warning"><i class="bi bi-list"></i>Tienda</button>
 
     </li>
     <li class="nav-item">
         <a class="nav-link" [routerLink]="['/']">Inicio</a>
     </li>
-    <app-sidebar [@slideInOut]="menuState"></app-sidebar>
+
 
 
     <ng-template #notregistered>
@@ -48,3 +48,13 @@
 
 
 </ul>
+<div id="mySidenav" class="sidenav" *ngIf="sidebar">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <a [routerLink]="['Store']">Productos</a>
+    <div *ngIf="userLogged|async as user">
+        <a [routerLink]="['Cart']">Mi carrito</a>
+        <a [routerLink]="['AddProduct']"> Añadir un producto</a>
+    </div>
+</div>
+
+</html>

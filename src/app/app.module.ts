@@ -47,7 +47,7 @@ import { NavmenusideComponent } from './components/navmenuside/navmenuside.compo
 //Services
 import { ConexionService } from 'src/app/services/conexion.service';
 import { LoadingpageComponent } from './components/loadingpage/loadingpage.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+
 
 //
 
@@ -84,7 +84,7 @@ const rutas: Routes = [
     AddProductFormComponent,
     NavmenusideComponent,
     LoadingpageComponent,
-    SidebarComponent,
+  
   
   ],
   imports: [
