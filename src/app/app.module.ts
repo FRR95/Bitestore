@@ -47,6 +47,7 @@ import { NavmenusideComponent } from './components/navmenuside/navmenuside.compo
 //Services
 import { ConexionService } from 'src/app/services/conexion.service';
 import { LoadingpageComponent } from './components/loadingpage/loadingpage.component';
+import { CovidStatsComponent } from './components/covid-stats/covid-stats.component';
 
 
 //
@@ -59,6 +60,7 @@ const rutas: Routes = [
   { path: 'AddProduct', component:AddProductFormComponent},
   { path: 'Cart', component:AddToCartComponent},
   { path: 'Navsidemenu', component:NavmenusideComponent},
+  { path: 'CovidStats', component:CovidStatsComponent},
   
   { path: 'ProductDetails/:id/:name/:descriptionshort/:details/:iva/:price/:image', component:ProductDetailsComponent },
  
@@ -84,6 +86,7 @@ const rutas: Routes = [
     AddProductFormComponent,
     NavmenusideComponent,
     LoadingpageComponent,
+    CovidStatsComponent,
   
   
   ],

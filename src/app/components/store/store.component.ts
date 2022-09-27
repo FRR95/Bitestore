@@ -19,7 +19,7 @@ import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 export class StoreComponent implements OnInit {
   products: ProductHTTP[] = [];
   productsCUSTOM: ProductHTTP[] = [];
-  loading = false;
+  loading = true;
   formValue:any;
   productsfilter!: any;
   filteredProducts!: any[];
@@ -35,12 +35,9 @@ export class StoreComponent implements OnInit {
  
 
   ngOnInit() {
-
-
-  this.obtenerproductoshttp();
-
-  this.obtenerproductosCUSTOM();
-  this.obtenerproductoshttpfiltered1();
+this.obtenerproductoshttp();
+this.obtenerproductosCUSTOM();
+this.obtenerproductoshttpfiltered1();
 
 
   
@@ -69,7 +66,9 @@ export class StoreComponent implements OnInit {
   this.loading = true;
   this.conexion.getproducts().subscribe(doc=>{
     this.products=doc;
-    this.loading = false;});
+   this.loading = false;
+  
+  });
    
   }
 
