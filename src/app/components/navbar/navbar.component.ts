@@ -14,10 +14,16 @@ export class NavbarComponent implements OnInit {
   menuState:string = 'out';
   class:any;
   class1:any;
-  sidebar=false;
 
 
-  constructor(private conexion: ConexionService, private router: Router) {
+
+  options = this.fb.group({
+    bottom: 0,
+    fixed: false,
+    top: 0,
+  });
+
+  constructor(private conexion: ConexionService, private router: Router,private fb: FormBuilder) {
    this.class='invisible';
    this.class1='visible';
 
@@ -32,15 +38,6 @@ export class NavbarComponent implements OnInit {
 
 
 
-    openNav(){
-    this.sidebar=true;
-
-   }
-
-   closeNav(){
-    this.sidebar=false;
-    
-   }
 
    
 }

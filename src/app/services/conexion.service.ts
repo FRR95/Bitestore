@@ -116,6 +116,10 @@ getproducts(){
 return this.http.get<any>('https://api.biteindustry.es/products',{headers:{Authorization:'*CdY2)x4|]<uv9V)-{^W6[j#c'}})
 }
 
+get_covid_data(){
+  return this.http.get<any>('https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true')
+  }
+
 
 
 

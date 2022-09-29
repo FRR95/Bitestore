@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { ProductHTTP } from 'src/app/Models/ProductsFilter';
+
 import { Product } from 'src/app/Models/Products';
 import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 
@@ -34,16 +35,11 @@ export class StoreComponent implements OnInit {
   
  
 
-  ngOnInit() {
+ngOnInit() {
 this.obtenerproductoshttp();
 this.obtenerproductosCUSTOM();
 this.obtenerproductoshttpfiltered1();
-
-
-  
-  
-      
-    }
+}
 
   obtenerproductosCUSTOM() {
     this.loading = true;
@@ -71,6 +67,9 @@ this.obtenerproductoshttpfiltered1();
   });
    
   }
+
+
+
 
   obtenerproductoshttpfiltered1() {
     this.conexion.getproducts().subscribe(products => {

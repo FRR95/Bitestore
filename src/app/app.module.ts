@@ -15,6 +15,10 @@ import {
   
  } from "@angular/fire/compat/storage";
 
+ //AngularMat
+ import { MatSliderModule } from '@angular/material/slider';
+ import { MatSidenavModule } from '@angular/material/sidenav';
+ import { MatTableModule } from '@angular/material/table';
 
 
 import { AppComponent } from './app.component';
@@ -109,8 +113,10 @@ const rutas: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-  
     AngularFireModule.initializeApp(environment.firebase),
+    MatSliderModule,
+    MatSidenavModule,
+    MatTableModule
   ],
   exports:[
     BrowserModule,

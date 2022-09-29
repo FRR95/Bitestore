@@ -1,1 +1,70 @@
-<p>covid-stats works!</p>
+<html>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">infected</th>
+            <th scope="col">tested</th>
+            <th scope="col">recovered</th>
+            <th scope="col">decease</th>
+            <th scope="col">country</th>
+            <th scope="col">moreData</th>
+            <th scope="col">historyData</th>
+            <th scope="col">sourceUrl</th>
+            <th scope="col">lastUpdatedApify</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let covidcase of covidcases,index as i">
+            <th scope="row">{{i}}</th>
+            <td>{{ covidcase.infected }}</td>
+            <td>{{ covidcase.tested }}</td>
+            <td>{{ covidcase.recovered }}</td>
+            <td>{{ covidcase.decease }}</td>
+            <td>{{ covidcase.country }}</td>
+            <td>{{ covidcase.moreData }}</td>
+            <td>{{ covidcase.historyData }}</td>
+            <td><a href="{{ covidcase.sourceUrl }}">Source</a></td>
+            <td>{{ covidcase.lastUpdatedApify }}</td>
+
+        </tr>
+    </tbody>
+</table>
+
+
+
+<!-- TABLE -->
+
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="demo-position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="demo-name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="demo-weight">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="demo-symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+</html>

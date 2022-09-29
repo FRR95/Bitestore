@@ -1,9 +1,9 @@
 <html>
-<ul class="nav justify-content-center sticky-top bg-white">
-    <li class="nav-item">
+<ul class="nav justify-content-center  bg-white">
 
-        <button (click)="openNav()" class="btn btn-warning"><i class="bi bi-list"></i>Tienda</button>
 
+    <li class="nav-Item">
+        <button mat-button (click)="sidenav.toggle()" class="btn btn-warning"><i class="bi bi-list"></i>Toggle</button>
     </li>
     <li class="nav-item">
         <a class="nav-link" [routerLink]="['/']">Inicio</a>
@@ -48,14 +48,21 @@
 
 
 </ul>
-<div id="mySidenav" class="sidenav" *ngIf="sidebar">
-    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <a [routerLink]="['Store']">Productos</a>
-    <a [routerLink]="['CovidStats']">CovidStats</a>
-    <div *ngIf="userLogged|async as user">
-        <a [routerLink]="['Cart']">Mi carrito</a>
-        <a [routerLink]="['AddProduct']"> Añadir un producto</a>
-    </div>
-</div>
+
+
+<mat-sidenav-container class="example-container">
+
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
+        <div class="sidenav">
+            <a [routerLink]="['Store']">Productos</a>
+            <a [routerLink]="['CovidStats']">CovidStats</a>
+            <div *ngIf="userLogged|async as user">
+                <a [routerLink]="['Cart']">Mi carrito</a>
+                <a [routerLink]="['AddProduct']"> Añadir un producto</a>
+            </div>
+        </div>
+    </mat-sidenav>
+
+</mat-sidenav-container>
 
 </html>
