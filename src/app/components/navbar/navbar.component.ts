@@ -17,11 +17,7 @@ export class NavbarComponent implements OnInit {
 
 
 
-  options = this.fb.group({
-    bottom: 0,
-    fixed: false,
-    top: 0,
-  });
+
 
   constructor(private conexion: ConexionService, private router: Router,private fb: FormBuilder) {
    this.class='invisible';

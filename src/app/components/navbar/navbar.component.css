@@ -32,14 +32,6 @@
     margin-left: 50px;
 }
 
-
-/*Nav*/
-
-.nav {
-    width: 100%;
-    z-index: 100000;
-}
-
 .example-sidenav {
     position: fixed;
     display: flex;
@@ -49,3 +41,13 @@
     width: 200px;
     background-color: #a5b418;
 }
+
+
+/*NAV*/
+
+.navbar {
+    background-color: #a5b418;
+}
+
+
+/*------*/

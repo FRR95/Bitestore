@@ -21,6 +21,7 @@ import {
  import { MatTableModule } from '@angular/material/table';
 
 
+
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -116,7 +117,8 @@ const rutas: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     MatSliderModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+ 
   ],
   exports:[
     BrowserModule,

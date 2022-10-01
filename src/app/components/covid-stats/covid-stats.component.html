@@ -2,64 +2,64 @@
 
 
 
-<div class="">
-    <table mat-table [dataSource]="covidcases" class="mat-elevation-z8 demo-table container my-5 mx-5">
 
-        <!--- Note that these columns can be defined in any order.
+<table mat-table [dataSource]="covidcases" class=" mat-elevation-z8 demo-table  ms-auto me-auto mt-3 mb-3 ">
+
+    <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="infected">
-            <th mat-header-cell *matHeaderCellDef> infected </th>
-            <td mat-cell *matCellDef="let element"> {{element.infected}} </td>
-        </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="infected">
+        <th mat-header-cell *matHeaderCellDef> infected </th>
+        <td mat-cell *matCellDef="let element"> {{element.infected}} </td>
+    </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="tested">
-            <th mat-header-cell *matHeaderCellDef> tested </th>
-            <td mat-cell *matCellDef="let element"> {{element.tested}} </td>
-        </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="tested">
+        <th mat-header-cell *matHeaderCellDef> tested </th>
+        <td mat-cell *matCellDef="let element"> {{element.tested}} </td>
+    </ng-container>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="recovered">
-            <th mat-header-cell *matHeaderCellDef> recovered </th>
-            <td mat-cell *matCellDef="let element"> {{element.recovered}} </td>
-        </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="recovered">
+        <th mat-header-cell *matHeaderCellDef> recovered </th>
+        <td mat-cell *matCellDef="let element"> {{element.recovered}} </td>
+    </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="decease">
-            <th mat-header-cell *matHeaderCellDef> decease </th>
-            <td mat-cell *matCellDef="let element"> {{element.decease}} </td>
-        </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="decease">
+        <th mat-header-cell *matHeaderCellDef> decease </th>
+        <td mat-cell *matCellDef="let element"> {{element.decease}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="country">
-            <th mat-header-cell *matHeaderCellDef> country </th>
-            <td mat-cell *matCellDef="let element"> {{element.country}} </td>
-        </ng-container>
+    <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef> country </th>
+        <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="moreData">
-            <th mat-header-cell *matHeaderCellDef> moreData </th>
-            <td mat-cell *matCellDef="let element"> {{element.moreData}} </td>
-        </ng-container>
+    <ng-container matColumnDef="moreData">
+        <th mat-header-cell *matHeaderCellDef> moreData </th>
+        <td mat-cell *matCellDef="let element"> {{element.moreData}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="historyData">
-            <th mat-header-cell *matHeaderCellDef> historyData </th>
-            <td mat-cell *matCellDef="let element"> {{element.historyData}} </td>
-        </ng-container>
+    <ng-container matColumnDef="historyData">
+        <th mat-header-cell *matHeaderCellDef> historyData </th>
+        <td mat-cell *matCellDef="let element"> {{element.historyData}} </td>
+    </ng-container>
 
-        <ng-container matColumnDef="sourceUrl">
-            <th mat-header-cell *matHeaderCellDef> sourceUrl </th>
-            <td mat-cell *matCellDef="let element"> <a href="{{ element.sourceUrl }}">Source</a> </td>
-        </ng-container>
+    <ng-container matColumnDef="sourceUrl">
+        <th mat-header-cell *matHeaderCellDef> sourceUrl </th>
+        <td mat-cell *matCellDef="let element"> <a href="{{ element.sourceUrl }}">Source</a> </td>
+    </ng-container>
 
-        <ng-container matColumnDef="lastUpdatedApify">
-            <th mat-header-cell *matHeaderCellDef> lastUpdatedApify </th>
-            <td mat-cell *matCellDef="let element"> {{element.lastUpdatedApify}} </td>
-        </ng-container>
+    <ng-container matColumnDef="lastUpdatedApify">
+        <th mat-header-cell *matHeaderCellDef> lastUpdatedApify </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastUpdatedApify}} </td>
+    </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-</div>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
 
 </html>
