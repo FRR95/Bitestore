@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule  } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +19,14 @@ import {
  import { MatSliderModule } from '@angular/material/slider';
  import { MatSidenavModule } from '@angular/material/sidenav';
  import { MatTableModule } from '@angular/material/table';
+ import { MatToolbar } from '@angular/material/toolbar';
+ import { MatTabsModule } from '@angular/material/tabs';
+ import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
+
+
+
+
 
 
 
@@ -92,7 +100,7 @@ const rutas: Routes = [
     NavmenusideComponent,
     LoadingpageComponent,
     CovidStatsComponent,
-  
+    CanvasJSChart
   
   ],
   imports: [
@@ -118,15 +126,17 @@ const rutas: Routes = [
     MatSliderModule,
     MatSidenavModule,
     MatTableModule,
- 
-  ],
+    MatTabsModule
+ ],
   exports:[
     BrowserModule,
     RouterModule,
+
   ],
   providers: [
     ScreenTrackingService,UserTrackingService,ConexionService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

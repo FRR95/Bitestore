@@ -2,25 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ConexionService } from 'src/app/services/conexion.service';
 import { CovidHTTP } from 'src/app/Models/CovidCases';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+
 
 
 
@@ -31,14 +14,19 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class CovidStatsComponent implements OnInit {
   covidcases: CovidHTTP[] = [];
+  covidcases1: CovidHTTP[] = [];
   displayedColumns: string[] = ['infected', 'tested', 'recovered', 'decease', 'country', 'moreData', 'historyData', 'sourceUrl', 'lastUpdatedApify'];
-  dataSource = ELEMENT_DATA;
+  chart = [];
 
 
   constructor(private conexion:ConexionService) { }
   
+
+  
   ngOnInit() {
     this.obtenercasoscovidhttp();
+
+   
   }
 
   obtenercasoscovidhttp() {
@@ -47,4 +35,92 @@ export class CovidStatsComponent implements OnInit {
   });
   }
 
+
+
+
+    columnChartOptions = {
+        animationEnabled: true,
+        title: {
+        text: 'Covid-19 Cases',
+        },
+        data: [
+        {
+            // Change type to "doughnut", "line", "splineArea", etc.
+            type: 'pie',
+            dataPoints: [
+            { label: 'apple', y: 10 },
+            { label: 'orange', y: 15 },
+            { label: 'banana', y: 25 },
+            { label: 'mango', y: 30 },
+            { label: 'grape', y: 28 },
+            ],
+        },
+        ],
+    };
+
+    columnChartOptions1 = {
+      animationEnabled: true,
+      title: {
+      text: 'Covid-19 Cases',
+      },
+      data: [
+      {
+          
+          type: 'pie',
+          dataPoints: [
+            { label: 'apple', y: 10 },
+            { label: 'orange', y: 15 },
+            { label: 'banana', y: 25 },
+            { label: 'mango', y: 30 },
+            { label: 'grape', y: 28 },
+            ],
+      },
+      ],
+  };
+
+    pieChartOptions = {
+        animationEnabled: true,
+        title: {
+        text: 'Angular Pie Chart in Material UI Tabs',
+        },
+        theme: 'light2', // "light1", "dark1", "dark2"
+        data: [
+        {
+            type: 'pie',
+            dataPoints: [
+            { label: 'apple', y: 10 },
+            { label: 'orange', y: 15 },
+            { label: 'banana', y: 25 },
+            { label: 'mango', y: 30 },
+            { label: 'grape', y: 28 },
+            ],
+        },
+        ],
+    };
+
+    lineChartOptions = {
+        animationEnabled: true,
+        title: {
+        text: 'Angular Line Chart in Material UI Tabs',
+        },
+        theme: 'light2', // "light1", "dark1", "dark2"
+        data: [
+        {
+            type: 'line',
+            dataPoints: [
+            { label: 'apple', y: 10 },
+            { label: 'orange', y: 15 },
+            { label: 'banana', y: 25 },
+            { label: 'mango', y: 30 },
+            { label: 'grape', y: 28 },
+            ],
+        },
+        ],
+    };
+
+ 
 }
+
+
+
+

@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ProductHTTP } from 'src/app/Models/ProductsFilter';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { BehaviorSubject,Observable } from 'rxjs';
+import { BehaviorSubject,Observable,map } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+
+
 
 
 
@@ -119,6 +121,8 @@ return this.http.get<any>('https://api.biteindustry.es/products',{headers:{Autho
 get_covid_data(){
   return this.http.get<any>('https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true')
   }
+
+
 
 
 
