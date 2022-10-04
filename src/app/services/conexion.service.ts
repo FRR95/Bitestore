@@ -120,8 +120,12 @@ return this.http.get<any>('https://api.biteindustry.es/products',{headers:{Autho
 
 get_covid_data(){
   return this.http.get<any>('https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true')
-  }
-
+}
+get_covid_data_chart(){
+  return this.http.get<any>('https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true',  {
+    responseType: 'json',
+  })
+}
 
 
 

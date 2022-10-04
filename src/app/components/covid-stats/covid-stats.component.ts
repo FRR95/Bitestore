@@ -6,7 +6,6 @@ import { CovidHTTP } from 'src/app/Models/CovidCases';
 
 
 
-
 @Component({
   selector: 'app-covid-stats',
   templateUrl: './covid-stats.component.html',
@@ -16,7 +15,8 @@ export class CovidStatsComponent implements OnInit {
   covidcases: CovidHTTP[] = [];
   covidcases1: CovidHTTP[] = [];
   displayedColumns: string[] = ['infected', 'tested', 'recovered', 'decease', 'country', 'moreData', 'historyData', 'sourceUrl', 'lastUpdatedApify'];
-  chart = [];
+  chart: any;
+  dataPoints: any = [];
 
 
   constructor(private conexion:ConexionService) { }
@@ -25,7 +25,18 @@ export class CovidStatsComponent implements OnInit {
   
   ngOnInit() {
     this.obtenercasoscovidhttp();
-
+this.conexion.get_covid_data_chart()
+    .subscribe((response: any) => {
+      var responseData = response;
+      responseData.forEach((covidcase:any) => {
+        this.dataPoints.push({
+          label: covidcase.country,
+          y: covidcase.infected,
+          recovered: covidcase.recovered,
+        });
+      });
+      
+    });
    
   }
 
@@ -34,91 +45,93 @@ export class CovidStatsComponent implements OnInit {
   this.covidcases=doc;
   });
   }
-
-
-
-
-    columnChartOptions = {
-        animationEnabled: true,
-        title: {
-        text: 'Covid-19 Cases',
-        },
-        data: [
-        {
-            // Change type to "doughnut", "line", "splineArea", etc.
-            type: 'pie',
-            dataPoints: [
-            { label: 'apple', y: 10 },
-            { label: 'orange', y: 15 },
-            { label: 'banana', y: 25 },
-            { label: 'mango', y: 30 },
-            { label: 'grape', y: 28 },
-            ],
-        },
-        ],
-    };
-
-    columnChartOptions1 = {
+ColumnChartCovidCases = {
       animationEnabled: true,
+      theme: 'light2',
       title: {
-      text: 'Covid-19 Cases',
+        text: 'Covid 19 graphic column countries with its infected population ',
+      },
+      axisX: {
+        title: 'Countries',
+        reversed: true,
+      },
+      axisY: {
+        title: 'Population infected (in Millions)',
+        labelFormatter: function (e: any) {
+          return e.value ;
+        },
+      },
+      toolTip: {
+        contentFormatter: function (e: any) {
+          return (
+            e.entries[0].dataPoint.label +
+            ' : ' +
+            (e.entries[0].dataPoint.y / 1000000).toFixed(1) +
+            'M'
+            +
+            '  Recovered:'
+            +
+            (e.entries[0].dataPoint.recovered/ 1000000).toFixed(1)
+
+          +
+          'M'
+
+          );
+        },
       },
       data: [
-      {
-          
-          type: 'pie',
-          dataPoints: [
-            { label: 'apple', y: 10 },
-            { label: 'orange', y: 15 },
-            { label: 'banana', y: 25 },
-            { label: 'mango', y: 30 },
-            { label: 'grape', y: 28 },
-            ],
-      },
+        {
+          type: 'column',
+          dataPoints: this.dataPoints,
+        },
       ],
   };
 
-    pieChartOptions = {
-        animationEnabled: true,
-        title: {
-        text: 'Angular Pie Chart in Material UI Tabs',
+  PieChartCovidCases = {
+      animationEnabled: true,
+      theme: 'light2',
+      title: {
+        text: 'Covid 19 pie graphic countries with its infected population ',
+      },
+      axisX: {
+        title: 'Countries',
+        reversed: true,
+      },
+      axisY: {
+        title: 'Population infected (in Millions)',
+        labelFormatter: function (e: any) {
+          return e.value ;
         },
-        theme: 'light2', // "light1", "dark1", "dark2"
-        data: [
-        {
-            type: 'pie',
-            dataPoints: [
-            { label: 'apple', y: 10 },
-            { label: 'orange', y: 15 },
-            { label: 'banana', y: 25 },
-            { label: 'mango', y: 30 },
-            { label: 'grape', y: 28 },
-            ],
-        },
-        ],
-    };
+      },
+      toolTip: {
+        contentFormatter: function (e: any) {
+          return (
+            e.entries[0].dataPoint.label +
+            ' : ' +
+            (e.entries[0].dataPoint.y / 1000000).toFixed(1) +
+            'M'
+            +
+            '  Recovered:'
+            +
+            (e.entries[0].dataPoint.recovered/ 1000000).toFixed(1)
 
-    lineChartOptions = {
-        animationEnabled: true,
-        title: {
-        text: 'Angular Line Chart in Material UI Tabs',
-        },
-        theme: 'light2', // "light1", "dark1", "dark2"
-        data: [
-        {
-            type: 'line',
-            dataPoints: [
-            { label: 'apple', y: 10 },
-            { label: 'orange', y: 15 },
-            { label: 'banana', y: 25 },
-            { label: 'mango', y: 30 },
-            { label: 'grape', y: 28 },
-            ],
-        },
-        ],
-    };
+          +
+          'M'
 
- 
+          );
+        },
+      },
+      data: [
+        {
+          type: 'pie',
+          dataPoints: this.dataPoints,
+        },
+      ],
+  };
+
+  getChartInstance(chart: object) {
+    this.chart = chart;
+  }
 }
 
 
