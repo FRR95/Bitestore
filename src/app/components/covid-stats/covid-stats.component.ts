@@ -48,6 +48,7 @@ this.conexion.get_covid_data_chart()
 ColumnChartCovidCases = {
       animationEnabled: true,
       theme: 'light2',
+      backgroundColor: "#cae04d",
       title: {
         text: 'Covid 19 graphic column countries with its infected population ',
       },
@@ -90,6 +91,7 @@ ColumnChartCovidCases = {
   PieChartCovidCases = {
       animationEnabled: true,
       theme: 'light2',
+      backgroundColor: "#cae04d",
       title: {
         text: 'Covid 19 pie graphic countries with its infected population ',
       },

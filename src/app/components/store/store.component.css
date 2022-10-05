@@ -37,5 +37,6 @@
 .card {
     box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
     border-radius: 5px;
-    padding-bottom: 10px
+    padding-bottom: 10px;
+    background-color: #a5b418;
 }

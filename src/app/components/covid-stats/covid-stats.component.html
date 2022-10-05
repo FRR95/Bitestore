@@ -64,16 +64,16 @@
 
 
 <div [@.disabled]="true">
-    <mat-tab-group class="GraphicData">
+    <mat-tab-group class="GraphicData" mat-align-tabs="center">
 
         <mat-tab label="Graphic pie">
             <ng-template matTabContent>
-                <canvasjs-chart [options]="PieChartCovidCases" class="GraphicData" [styles]="{ width: '100%', height: '360px' }"></canvasjs-chart>
+                <canvasjs-chart [options]="PieChartCovidCases"></canvasjs-chart>
             </ng-template>
         </mat-tab>
-        <mat-tab label="Graphic Table" class="GraphicData">
+        <mat-tab label="Graphic Table">
             <ng-template matTabContent>
-                <canvasjs-chart [options]="ColumnChartCovidCases" class="GraphicData" [styles]="{ width: '100%', height: '360px'}"></canvasjs-chart>
+                <canvasjs-chart [options]="ColumnChartCovidCases"></canvasjs-chart>
             </ng-template>
         </mat-tab>
     </mat-tab-group>

@@ -47,6 +47,7 @@
 
 .navbar {
     background-color: #a5b418;
+    z-index: 1;
 }
 
 

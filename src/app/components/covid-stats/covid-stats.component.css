@@ -4,5 +4,9 @@
 }
 
 .GraphicData {
-    background-color: #cadd1e;
+    width: 70%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #a5b418;
 }
