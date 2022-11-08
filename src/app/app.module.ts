@@ -30,6 +30,8 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 
 
+
+
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';

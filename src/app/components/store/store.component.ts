@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConexionService } from 'src/app/services/conexion.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { FilteringService } from 'src/app/services/filtering.service';
 import { ToastrService } from 'ngx-toastr';
@@ -15,7 +16,15 @@ import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
-  styleUrls: ['./store.component.css']
+  styleUrls: ['./store.component.css'],
+  animations: [
+    trigger('foobar', [
+      state('show', style({opacity: 1,transform: "translateX(0)"})),
+      state('hide', style({opacity: 0,transform: "translateX(-100%)"})),
+      transition('show => hide', animate('700ms ease-out')),
+      transition('hide => show', animate('700ms ease-in'))
+    ])
+]
 })
 export class StoreComponent implements OnInit {
   products: ProductHTTP[] = [];
@@ -24,9 +33,9 @@ export class StoreComponent implements OnInit {
   formValue:any;
   productsfilter!: any;
   filteredProducts!: any[];
+  state= 'hide';
 
-
-  constructor(private conexion:ConexionService,private toastr:ToastrService,private filtering:FilteringService,private fb: FormBuilder,private firestore:AngularFirestore,private http:HttpClient) {
+  constructor(private conexion:ConexionService,private toastr:ToastrService,private filtering:FilteringService,private fb: FormBuilder,private firestore:AngularFirestore,private http:HttpClient,private el:ElementRef) {
    
 
    
@@ -39,6 +48,16 @@ ngOnInit() {
 this.obtenerproductoshttp();
 this.obtenerproductosCUSTOM();
 this.obtenerproductoshttpfiltered1();
+}
+@HostListener('window:scroll', ['$event'])
+checkScroll() {
+  const componentPosition = this.el.nativeElement.offsetTop
+  const scrollPosition = window.pageYOffset
+  if (scrollPosition >= componentPosition-150) {
+    this.state = 'show'
+  } else {
+    this.state = 'hide'
+  }
 }
 
   obtenerproductosCUSTOM() {

@@ -3,7 +3,7 @@
 
 
 
-<table mat-table [dataSource]="covidcases" class=" mat-elevation-z8 demo-table  ms-auto me-auto  mb-3 ">
+<table mat-table [@foobar]='state' [dataSource]="covidcases" class=" mat-elevation-z8 demo-table  ms-auto me-auto mt-5  mb-3 ">
 
     <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->
@@ -63,7 +63,7 @@
 
 
 
-<div [@.disabled]="true">
+<div [@.disabled]="true" [@foobar]='state'>
     <mat-tab-group class="GraphicData" mat-align-tabs="center">
 
         <mat-tab label="Graphic pie">
@@ -77,6 +77,20 @@
             </ng-template>
         </mat-tab>
     </mat-tab-group>
+</div>
+
+<div class="row justify-content-center mx-5  ">
+    <div class="col-4" *ngFor="let lodashfilter of covidcaseslodashfiltered">
+        <div class='container '>
+
+
+
+            <h5 class="card-title font-weight-bold">{{ lodashfilter.country }}</h5>
+
+
+
+        </div>
+    </div>
 </div>
 
 

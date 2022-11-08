@@ -4,6 +4,7 @@ import { ConexionService } from 'src/app/services/conexion.service';
 import { Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
