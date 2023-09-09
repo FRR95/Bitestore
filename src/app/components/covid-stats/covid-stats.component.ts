@@ -45,8 +45,8 @@ export class CovidStatsComponent implements OnInit {
 this.conexion.get_covid_data_chart()
     .subscribe((response: any) => {
     this.covidcaseslodash=response;
-    this.covidcaseslodashfiltered = _.filter(this.covidcaseslodash, { 'infected': 34815258 });
-    this.covidcaseslodashfiltered.forEach((covidcase:any) => {
+    this.covidcaseslodashfiltered = _.remove(this.covidcaseslodash, { 'recovered': "NA" });
+    this.covidcaseslodash.forEach((covidcase:any) => {
         this.dataPoints.push({
           label: covidcase.country,
           y: covidcase.infected,
@@ -58,6 +58,7 @@ this.conexion.get_covid_data_chart()
 
 this.RevealLodash();
 this.obtenercasoscovidlodash();
+
 
    
   }
@@ -84,7 +85,7 @@ this.obtenercasoscovidlodash();
   obtenercasoscovidlodash() {
     this.conexion.get_covid_data().subscribe(doc=>{
     this.covidcaseslodash=doc;
-    this.covidcaseslodashfiltered = _.filter(this.covidcaseslodash, { 'infected': 34815258 });
+    this.covidcaseslodashfiltered = _.filter(this.covidcaseslodash, { 'recovered': 1 });
     });
     
     }

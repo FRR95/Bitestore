@@ -17,7 +17,7 @@ describe('CovidStatsComponent', () => {
     fixture = TestBed.createComponent(CovidStatsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }); 
 
   it('should create', () => {
     expect(component).toBeTruthy();
