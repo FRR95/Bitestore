@@ -57,12 +57,22 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
 import { AddProductFormComponent } from './components/add-product-form/add-product-form.component';
 import { NavmenusideComponent } from './components/navmenuside/navmenuside.component';
+import { CovidStatsComponent } from './components/covid-stats/covid-stats.component';
+import { StoreDiscosDurosComponent } from './components/store-discos-duros/store-discos-duros.component';
+import { StoreImpresorasComponent } from './components/store-impresoras/store-impresoras.component';
+import { StorePortatilesComponent } from './components/store-portatiles/store-portatiles.component';
+import { StoreTecladosComponent } from './components/store-teclados/store-teclados.component';
+
+
+
+
 //
 
 //Services
 import { ConexionService } from 'src/app/services/conexion.service';
 import { LoadingpageComponent } from './components/loadingpage/loadingpage.component';
-import { CovidStatsComponent } from './components/covid-stats/covid-stats.component';
+
+
 
 
 //
@@ -72,10 +82,17 @@ const rutas: Routes = [
   { path: 'SignIn', component:SignInUserComponent },
   { path: 'logIn', component:LogInUserComponent },
   { path: 'Store', component:StoreComponent},
+  { path: 'Store/Teclados USB', component:StoreTecladosComponent},
+  { path: 'Store/Discos duros externos', component:StoreDiscosDurosComponent},
+  { path: 'Store/Portátiles', component:StorePortatilesComponent},
+  { path: 'Store/Impresoras laser color', component:StoreImpresorasComponent},
+
+
   { path: 'AddProduct', component:AddProductFormComponent},
   { path: 'Cart', component:AddToCartComponent},
   { path: 'Navsidemenu', component:NavmenusideComponent},
   { path: 'CovidStats', component:CovidStatsComponent},
+  
   
   { path: 'ProductDetails/:id/:name/:descriptionshort/:details/:iva/:price/:image', component:ProductDetailsComponent },
  
@@ -102,7 +119,12 @@ const rutas: Routes = [
     NavmenusideComponent,
     LoadingpageComponent,
     CovidStatsComponent,
-    CanvasJSChart
+    CanvasJSChart,
+    StoreDiscosDurosComponent,
+StoreImpresorasComponent,
+StorePortatilesComponent,
+StoreTecladosComponent
+  
   
   ],
   imports: [

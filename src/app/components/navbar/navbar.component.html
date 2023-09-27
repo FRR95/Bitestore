@@ -48,8 +48,11 @@
     <mat-sidenav #sidenav mode="side" closed class="example-sidenav">
         <div class="sidenav">
             <button mat-button class="navbar-brand" (click)="sidenav.toggle()" class="btn"><i class="bi bi-arrow-left-circle"></i></button>
-            <a [routerLink]="['Store']" class="mt-5">Productos</a>
-            <a [routerLink]="['CovidStats']">CovidStats</a>
+            <a [routerLink]="['Store']" class="mt-5">Todos los productos</a>
+            <a [routerLink]="['Store/Teclados USB']">Teclados</a>
+            <a [routerLink]="['Store/Discos duros externos']">Discos Duros</a>
+            <a [routerLink]="['Store/Portátiles']">Portátiles</a>
+            <a [routerLink]="['Store/Impresoras laser color']">Impresoras laser color</a>
             <div *ngIf="userLogged|async as user">
                 <a [routerLink]="['Cart']">Mi carrito</a>
                 <a [routerLink]="['AddProduct']"> Añadir un producto</a>

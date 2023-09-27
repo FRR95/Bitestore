@@ -3,14 +3,3 @@ html {
     font-family: "Poppins", sans-serif;
     background-color: #c4f7fd;
 }
-
-.btn {
-    background-color: #aff7ff;
-    border-style: solid;
-    border-width: 0.5px;
-    border-color: black;
-}
-
-.btn:hover {
-    background-color: #4bedff;
-}
