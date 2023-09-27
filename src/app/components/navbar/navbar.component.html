@@ -1,60 +1,68 @@
 <html>
-<ul class="nav justify-content-center sticky-top bg-white">
-    <li class="nav-item">
-
-        <button (click)="openNav()" class="btn"><i class="bi bi-list"></i>Tienda</button>
-
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/']">Inicio</a>
-    </li>
-
-
-
-    <ng-template #notregistered>
-        <li class="nav-item">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-circle"></i>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-
-                <li><a class="dropdown-item" [routerLink]="['logIn']">Iniciar Sesión</a></li>
-                <li><a class="dropdown-item" [routerLink]="['SignIn']">Registrarse</a></li>
-
-
-            </ul>
-        </li>
-    </ng-template>
+<nav class="navbar fixed-top navbar-expand-lg ">
+    <div class="container-fluid">
+        <a href=""></a>
+        <button mat-button class="navbar-brand" (click)="sidenav.toggle()" class="btn"><i class="bi bi-list"></i></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto  mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/']">Inicio</a>
+                </li>
 
 
 
+                <ng-template #notregistered>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" [routerLink]="['logIn']">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['SignIn']">Registrarse</a></li>
+                        </ul>
+                    </li>
+                </ng-template>
 
-
-
-    <div *ngIf="userLogged|async as user; else notregistered">
-        <li class="nav-item">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{user.email}}
-                </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                <li><a class="dropdown-item" (click)="logOut()">Cerrar sesión</a></li>
-
+                <div *ngIf="userLogged|async as user; else notregistered">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{user.email}}
+              </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" (click)="logOut()">Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+                </div>
 
             </ul>
-        </li>
+        </div>
     </div>
+</nav>
+
+
+<mat-sidenav-container class="example-container">
+
+    <mat-sidenav #sidenav mode="side" closed class="example-sidenav">
+        <div class="sidenav">
+            <button mat-button class="navbar-brand" (click)="sidenav.toggle()" class="btn"><i class="bi bi-arrow-left-circle"></i></button>
+            <a [routerLink]="['Store']" class="mt-5">Productos</a>
+            <a [routerLink]="['CovidStats']">CovidStats</a>
+            <div *ngIf="userLogged|async as user">
+                <a [routerLink]="['Cart']">Mi carrito</a>
+                <a [routerLink]="['AddProduct']"> Añadir un producto</a>
+            </div>
+        </div>
+    </mat-sidenav>
+
+</mat-sidenav-container>
 
 
 
-</ul>
-<div id="mySidenav" class="sidenav" *ngIf="sidebar">
-    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <a [routerLink]="['Store']">Productos</a>
-    <div *ngIf="userLogged|async as user">
-        <a [routerLink]="['Cart']">Mi carrito</a>
-        <a [routerLink]="['AddProduct']"> Añadir un producto</a>
-    </div>
-</div>
+
+
+
 
 </html>

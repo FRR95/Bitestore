@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule  } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +14,21 @@ import {
   AngularFireUploadTask,
   
  } from "@angular/fire/compat/storage";
+
+ //AngularMat
+ import { MatSliderModule } from '@angular/material/slider';
+ import { MatSidenavModule } from '@angular/material/sidenav';
+ import { MatTableModule } from '@angular/material/table';
+ import { MatToolbar } from '@angular/material/toolbar';
+ import { MatTabsModule } from '@angular/material/tabs';
+ import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
+
+
+
+
+
+
 
 
 
@@ -47,6 +62,7 @@ import { NavmenusideComponent } from './components/navmenuside/navmenuside.compo
 //Services
 import { ConexionService } from 'src/app/services/conexion.service';
 import { LoadingpageComponent } from './components/loadingpage/loadingpage.component';
+import { CovidStatsComponent } from './components/covid-stats/covid-stats.component';
 
 
 //
@@ -59,6 +75,7 @@ const rutas: Routes = [
   { path: 'AddProduct', component:AddProductFormComponent},
   { path: 'Cart', component:AddToCartComponent},
   { path: 'Navsidemenu', component:NavmenusideComponent},
+  { path: 'CovidStats', component:CovidStatsComponent},
   
   { path: 'ProductDetails/:id/:name/:descriptionshort/:details/:iva/:price/:image', component:ProductDetailsComponent },
  
@@ -84,7 +101,8 @@ const rutas: Routes = [
     AddProductFormComponent,
     NavmenusideComponent,
     LoadingpageComponent,
-  
+    CovidStatsComponent,
+    CanvasJSChart
   
   ],
   imports: [
@@ -106,16 +124,21 @@ const rutas: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-  
     AngularFireModule.initializeApp(environment.firebase),
-  ],
+    MatSliderModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatTabsModule
+ ],
   exports:[
     BrowserModule,
     RouterModule,
+
   ],
   providers: [
     ScreenTrackingService,UserTrackingService,ConexionService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

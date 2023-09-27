@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bitestore-90e91": {
+      "hosting": {
+        "BiteStore": [
+          "bitestore-90e91"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bitestore-90e91"
+  }
+}

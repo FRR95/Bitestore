@@ -2,10 +2,9 @@
     height: 100%;
     width: 280px;
     position: fixed;
-    z-index: 100000;
     top: 0;
     left: 0;
-    background-color: #cae04d;
+    background-color: #c4f7fd;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -16,13 +15,13 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #5031ff;
     display: block;
     transition: 0.3s;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #0011ff;
 }
 
 .sidenav .closebtn {
@@ -32,3 +31,24 @@
     font-size: 36px;
     margin-left: 50px;
 }
+
+.example-sidenav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    width: 200px;
+    background-color: #c4f7fd;
+}
+
+
+/*NAV*/
+
+.navbar {
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+
+/*------*/

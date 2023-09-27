@@ -4,6 +4,7 @@ import { ConexionService } from 'src/app/services/conexion.service';
 import { Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -14,10 +15,12 @@ export class NavbarComponent implements OnInit {
   menuState:string = 'out';
   class:any;
   class1:any;
-  sidebar=false;
 
 
-  constructor(private conexion: ConexionService, private router: Router) {
+
+
+
+  constructor(private conexion: ConexionService, private router: Router,private fb: FormBuilder) {
    this.class='invisible';
    this.class1='visible';
 
@@ -32,15 +35,6 @@ export class NavbarComponent implements OnInit {
 
 
 
-    openNav(){
-    this.sidebar=true;
-
-   }
-
-   closeNav(){
-    this.sidebar=false;
-    
-   }
 
    
 }
