@@ -15,23 +15,32 @@ import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 @Component({
   selector: 'app-store-discos-duros',
   templateUrl: './store-discos-duros.component.html',
-  styleUrls: ['./store-discos-duros.component.css']
+  styleUrls: ['./store-discos-duros.component.css'],
+  animations: [
+    trigger('foobar', [
+      state('show', style({opacity: 1,transform: "translateX(0)"})),
+      state('hide', style({opacity: 0,transform: "translateX(-100%)"})),
+      transition('show => hide', animate('700ms ease-out')),
+      transition('hide => show', animate('700ms ease-in'))
+    ])
+]
 })
 export class StoreDiscosDurosComponent implements OnInit {
   productsfilter!: any;
   filteredProducts!: any[];
   products!: boolean;
+  state= 'hide';
 
   constructor(private conexion:ConexionService,private toastr:ToastrService,private filtering:FilteringService,private fb: FormBuilder,private firestore:AngularFirestore,private http:HttpClient,private el:ElementRef) { }
   userLogged = this.conexion.getUserLogged();
   ngOnInit() {
-    this.obtenerproductoshttpfiltered1();
+    this.obtenerproductoshttpfiltered();
   }
-  obtenerproductoshttpfiltered1() {
+  obtenerproductoshttpfiltered() {
     this.conexion.getproducts().subscribe(products => {
       this.productsfilter = products;
        this.filteredProducts =[...this.productsfilter.filter((user: { category:{name: string | any[];} }) => user.category.name.includes('Discos duros externos'))];
-       this.products=true;
+       this.state= 'show';
     });
     
      

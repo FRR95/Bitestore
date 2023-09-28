@@ -1,1 +1,24 @@
-<p>store-impresoras works!</p>
+<html>
+<div class="row justify-content-center mx-5" [@foobar]='state'>
+    <h1>1</h1>
+    <div class="col-3" *ngFor="let product of filteredProducts">
+        <div class='container'>
+            <div class="card mx-auto px-5 mb-5  mt-5 "> <img class='mx-auto img-thumbnail' src="{{product.picture}}" width="auto" height="auto" />
+                <div class="card-body text-center mx-auto">
+                    <div class='cvp'>
+                        <h5 class="card-title font-weight-bold">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.price}}€</p> <a [routerLink]="['/ProductDetails',product.id,product.name,product.description.short,product.description.long,product.iva,product.price,product.picture]" class="btn  px-auto">Detalles del producto</a><br/>
+                        <div *ngIf="userLogged|async">
+                            <a (click)="addtocart(product)" class="btn cart px-auto">Añadir a la cesta</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="(filteredProducts )?.length==0">
+<app-emptysearchcomponent></app-emptysearchcomponent>
+</div>
+
+</html>

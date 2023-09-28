@@ -1,5 +1,5 @@
 <html>
-<div class="row justify-content-center mx-5">
+<div class="row justify-content-center mx-5" [@foobar]='state'>
     <h1>1</h1>
     <div class="col-3" *ngFor="let product of filteredProducts">
         <div class='container'>
@@ -18,8 +18,8 @@
     </div>
 </div>
 
-<div *ngIf="!(filteredProducts)?.length">
-    <p>sdfdfsdfsdf</p>
-</div>
+<div *ngIf="(filteredProducts)?.length==0">
+    <app-emptysearchcomponent></app-emptysearchcomponent>
+    </div>
 
 </html>

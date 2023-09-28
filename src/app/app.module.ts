@@ -62,7 +62,7 @@ import { StoreDiscosDurosComponent } from './components/store-discos-duros/store
 import { StoreImpresorasComponent } from './components/store-impresoras/store-impresoras.component';
 import { StorePortatilesComponent } from './components/store-portatiles/store-portatiles.component';
 import { StoreTecladosComponent } from './components/store-teclados/store-teclados.component';
-
+import { EmptysearchcomponentComponent } from './components/emptysearchcomponent/emptysearchcomponent.component';
 
 
 
@@ -71,6 +71,7 @@ import { StoreTecladosComponent } from './components/store-teclados/store-teclad
 //Services
 import { ConexionService } from 'src/app/services/conexion.service';
 import { LoadingpageComponent } from './components/loadingpage/loadingpage.component';
+
 
 
 
@@ -123,7 +124,9 @@ const rutas: Routes = [
     StoreDiscosDurosComponent,
 StoreImpresorasComponent,
 StorePortatilesComponent,
-StoreTecladosComponent
+StoreTecladosComponent,
+EmptysearchcomponentComponent,
+
   
   
   ],

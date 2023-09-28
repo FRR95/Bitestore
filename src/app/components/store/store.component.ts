@@ -29,7 +29,7 @@ import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 export class StoreComponent implements OnInit {
   products: ProductHTTP[] = [];
   productsCUSTOM: ProductHTTP[] = [];
-  loading = true;
+
   formValue:any;
   productsfilter!: any;
   filteredProducts!: any[];
@@ -49,19 +49,10 @@ this.obtenerproductoshttp();
 this.obtenerproductosCUSTOM();
 this.obtenerproductoshttpfiltered1();
 }
-@HostListener('window:scroll', ['$event'])
-checkScroll() {
-  const componentPosition = this.el.nativeElement.offsetTop
-  const scrollPosition = window.pageYOffset
-  if (scrollPosition >= componentPosition-150) {
-    this.state = 'show'
-  } else {
-    this.state = 'hide'
-  }
-}
+
 
   obtenerproductosCUSTOM() {
-    this.loading = true;
+  
     this.conexion.obtenerproductos().subscribe(doc => {
       this.productsCUSTOM = [];
      
@@ -73,15 +64,16 @@ checkScroll() {
         
       });
       
-      this.loading = false;
+      
     })
   }
   
   obtenerproductoshttp() {
-  this.loading = true;
+  
   this.conexion.getproducts().subscribe(doc=>{
     this.products=doc;
-   this.loading = false;
+  
+   this.state= 'show';
   
   });
    
