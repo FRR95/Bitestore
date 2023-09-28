@@ -4,6 +4,7 @@
 	    height: 400px;
 	    width: 350px;
 	    margin-top: 6rem;
+		background-color: #1895b4;
 	    margin-bottom: 5rem;
 	    position: relative;
 	    display: flex;
@@ -40,14 +41,26 @@
 	
 	.login_btn {
 	    width: 100%;
-	    background: #cae04d !important;
-	    color: white !important;
+	    background-color: #1895b4 ;
+	    color: white ;
+		border-width: 1px;
+		border-style: solid;
+		border-color: black;
 	}
-	
-	.login_btn:focus {
-	    box-shadow: none !important;
-	    outline: 0px !important;
+	.login_btn:hover{
+	background-color: #aff7ff;
+	color: black;
 	}
+	.loginlink{
+		color: black;
+		}
+	.loginlink:hover{
+		color: rgb(255, 255, 255);
+		}
+		
+		a:hover{
+			cursor: pointer;
+		}
 	
 	.login_container {
 	    padding: 0 2rem;

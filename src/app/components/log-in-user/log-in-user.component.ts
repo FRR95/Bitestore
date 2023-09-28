@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConexionService } from 'src/app/services/conexion.service';
@@ -9,9 +10,18 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 @Component({
   selector: 'app-log-in-user',
   templateUrl: './log-in-user.component.html',
-  styleUrls: ['./log-in-user.component.css']
+  styleUrls: ['./log-in-user.component.css'],
+  animations: [
+    trigger('foobar', [
+      state('show', style({opacity: 1,transform: "translateX(0)"})),
+      state('hide', style({opacity: 0,transform: "translateX(-100%)"})),
+      transition('show => hide', animate('700ms ease-out')),
+      transition('hide => show', animate('700ms ease-in'))
+    ])
+]
 })
 export class LogInUserComponent implements OnInit {
+  state= 'hide';
 
   usuario = {
     email: '',
@@ -39,7 +49,17 @@ export class LogInUserComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
 
+    
+  }
+  ngAfterViewInit() {
+    
+    setTimeout( () => {
+      
+      this.state = 'show';
+    }, 20);
+    
+     
+    }
 }
